@@ -39,7 +39,7 @@ module JIRA
       end
 
       def unsupported_fields(type)
-        required_fields(type).reject { |key, v| (main_custom_fields.values+DEFAULT_REQUIRED_KEYS).include? v['key'] }
+        required_fields(type).reject { |key, v| (main_custom_fields.values+DEFAULT_REQUIRED_KEYS).include?(v['key'] || key) }
              .map { |k, value| value['name'] }
       end
 
